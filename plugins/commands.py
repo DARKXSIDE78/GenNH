@@ -112,11 +112,9 @@ async def start(client, message):
     elif data.split("-", 1)[0] == "BATCH":
         try:
             if not await check_verification(client, message.from_user.id) and VERIFY_MODE == True:
-                btn = [[
+                btn = [
                     InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{username}?start="))
-                ],[
-                    InlineKeyboardButton("GenAnime", url=VERIFY_TUTORIAL)
-                ]]
+                ]
                 await message.reply_text(
                     text="<b>You are not verified !\nKindly verify to continue !</b>",
                     protect_content=True,
@@ -216,8 +214,6 @@ async def start(client, message):
     if not await check_verification(client, message.from_user.id) and VERIFY_MODE == True:
         btn = [[
             InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{username}?start="))
-        ],[
-            InlineKeyboardButton("GenAnime", url=VERIFY_TUTORIAL)
         ]]
         await message.reply_text(
             text="<b>You are not verified !\nKindly verify to continue !</b>",
